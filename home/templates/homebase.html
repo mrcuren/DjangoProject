@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} SINIRSIZ EĞİTİM SİTESİ {% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="{% block keywords %} 'Anahtar Kelime' {% endblock %}" name="keywords">
+    <meta content="{% block description %}Kısa açıklama {% endblock %}" name="description">
+    {% load static %}
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href= "{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+ {% include 'header.html' %}
+    {% block content %}  {% endblock %}
+    {% block about %}  {% endblock %}
+    {% block choose %}  {% endblock %}
+    {% block course %}  {% endblock %}
+    {% block team %}  {% endblock %}
+    {% block testimonial  %}  {% endblock %}
+    {% block contact  %}  {% endblock %}
+    {% block detail  %}  {% endblock %}
+    {% include 'footer.html' %}
+    {% block foot  %}  {% endblock %}
+</body>
+</html>

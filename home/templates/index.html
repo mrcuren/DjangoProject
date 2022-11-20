@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>İlk Django Sayfasi</title>
-</head>
-<body>
-<h1>Hosgeldin Django</h1>
-<h2>SUBU</h2>
-<p>
-    {{ text | safe}}
-</p>
-</body>
-</html>
+
+{% extends "homebase.html" %}
+{% block title %}ZCourse{% endblock %}
+    {% block keywords %}Anahtar kelime{% endblock %}
+{% block description %}Kısa acıklama{% endblock %}
+{% block content %}
+    {% include "content.html"%}
+{% endblock %}
+{% block about %}
+    {% include "about.html"%}
+{% endblock %}
+{% block choose %}
+    {% include "choose.html"%}
+{% endblock %}
+
+{% block course %}
+    {% include "course.html"%}
+{% endblock %}
+
+{% block team %}
+    {% include "team.html"%}
+{% endblock %}
+{% block testimonial %}
+    {% include "testimonial.html"%}
+{% endblock %}
+{% block contact %}
+    {% include "contact.html"%}
+{% endblock %}
+{% block detail %}
+    {% include "detail.html"%}
+{% endblock %}
+
