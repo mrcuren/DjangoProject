@@ -1,12 +1,30 @@
+{% extends "homebase.html" %}
+{% load static %}
 
 
+{% block title %} İletişim - {{ setting.company }}{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="{% static 'image/x-icon' %}" href="{{ setting.icon.url }}">
+{% endblock %}
+{% block content %}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-1">İLETİŞİM</h1>
+            <div class="d-inline-flex text-white mb-5">
+                <p class="m-0 text-uppercase"><a class="text-white" href="/home">Anasayfa</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">İLETİŞİM</p>
+            </div>
 
+        </div>
+    </div>
+    <!-- Header End -->
 
-
-
-
-
-    <!-- Contact Start -->
+{% endblock %}
+{% block about %}
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -17,7 +35,7 @@
                                 <i class="fa fa-2x fa-map-marker-alt text-white"></i>
                             </div>
                             <div class="mt-n1">
-                                <h4>Our Location</h4>
+                                <h4>Konumumuz</h4>
                                 <p class="m-0">{{ setting.address | safe}}</p>
                             </div>
                         </div>
@@ -26,7 +44,7 @@
                                 <i class="fa fa-2x fa-phone-alt text-white"></i>
                             </div>
                             <div class="mt-n1">
-                                <h4>Call Us</h4>
+                                <h4>Bizi Arayın</h4>
                                 <p class="m-0">{{ setting.phone | safe}}</p>
                             </div>
                         </div>
@@ -35,7 +53,7 @@
                                 <i class="fa fa-2x fa-envelope text-white"></i>
                             </div>
                             <div class="mt-n1">
-                                <h4>Email Us</h4>
+                                <h4>Bize E-posta Gönder</h4>
                                 <p class="m-0">{{ setting.email | safe}}</p>
                             </div>
                         </div>
@@ -72,4 +90,7 @@
         </div>
     </div>
     <!-- Contact End -->
+
+{% endblock %}
+
 
