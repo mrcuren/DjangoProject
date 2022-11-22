@@ -1,8 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from home.models import Setting
+
+
 # Create your views here.
 def index(request):
-    text="Merhaba Django"
-    context = {'text': text}
+    setting = Setting.objects.get(pk=1)
+    context = {'setting': setting,'page':'home'}
     return render(request, 'index.html', context)
+
+def hakkimizda(request):
+    setting = Setting.objects.get(pk=1)
+    context = {'setting': setting,'page':'hakkimizda'}
+    return render(request, 'hakkimizda.html', context)
 
