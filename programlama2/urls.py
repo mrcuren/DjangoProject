@@ -28,7 +28,8 @@ urlpatterns = [
     path("home/", include('home.urls')),
     path("course/", include('course.urls')),
     path("admin/", admin.site.urls),
-    path('ckeditor/', include('ckeditor_uploader.urls'))
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path("category/<int:id>/<slug:slug>/", views.category_courses, name='category_courses'),
 
 ]
 if settings.DEBUG: # new

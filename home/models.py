@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.forms import ModelForm,TextInput,Textarea
 
+
 # Create your models here.
 class Setting(models.Model):
     STATUS = (('True', 'Evet'),
@@ -65,3 +66,4 @@ class ContactFormu(ModelForm):
             'email': TextInput(attrs={'class': 'input', 'placeholder': 'Email'}),
             'message': Textarea(attrs={'class': 'input', 'placeholder': 'message','rows':'5'})
         }
+

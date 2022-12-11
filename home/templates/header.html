@@ -45,25 +45,33 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
                     <a href="/" class="nav-item nav-link active">Anasayfa</a>
+                    <div class=" dropdown">
+                        <a href="/category/{{ node.slug }}" class="nav-link dropdown-toggle active"  data-toggle="dropdown" aria-haspopup="true">Kategoriler</a>
 
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Kategoriler</a>
+                        {% load mptt_tags %}
                         <div class="dropdown-menu m-0">
-                            <a href="detail.html" class="dropdown-item active">Pazarlama</a>
-                            <a href="feature.html" class="dropdown-item">Yazılım Geliştirme</a>
-
+                            {% recursetree category %}
+                                <a href="/category/{{ node.slug }}" class="dropdown-item">{{ node.title }}</a>
+                                {% if not node.is_leaf_node %}
+                                    <a href="/category/{{ node.slug }}" class="dropdown-item">{{ children }}</a>
+                                {% endif %}
+                            {% endrecursetree %}
                         </div>
                     </div>
-                     <a href="/hakkimizda" class="nav-item nav-link">Hakkımızda</a>
-                    <a href="team.html" class="nav-item nav-link">Eğitmenler</a>
-                    <a href="/referanslar" class="nav-item nav-link">Referans</a>
-
-                    <a href="/iletisim" class="nav-item nav-link">İletişim</a>
+                <a href="team.html" class="nav-item nav-link">Eğitmenler</a>
+                <a href="/hakkimizda" class="nav-item nav-link">Hakkımızda</a>
+                <a href="/referanslar" class="nav-item nav-link">Referans</a>
+                <a href="/iletisim" class="nav-item nav-link">İletişim</a>
                 </div>
                 <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Bize katılın</a>
             </div>
         </nav>
     </div>
+
+
+
+
+
     <!-- Navbar End -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
