@@ -2,7 +2,7 @@ from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
 from course.models import Category,Course,Images
 from mptt.admin import DraggableMPTTAdmin
-from .models import Category, Course
+from .models import Category, Course,Comment
 # Register your models here.
 class CourseImageInline(admin.TabularInline):
     model =Images
@@ -27,6 +27,7 @@ class CategoryAdmin2(DraggableMPTTAdmin):
     list_display = ('tree_actions', 'indented_title',
                     'related_products_count', 'related_products_cumulative_count')
     list_display_links = ('indented_title',)
+    prepopulated_fields = {'slug': ('title',)}
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -55,6 +56,11 @@ class CategoryAdmin2(DraggableMPTTAdmin):
         return instance.products_cumulative_count
     related_products_cumulative_count.short_description = 'Related products (in tree)'
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display=['subject','comment','course','user','status']
+    list_filter=['status']
+
 admin.site.register(Category,CategoryAdmin2)
 admin.site.register(Course,CourseAdmin)
 admin.site.register(Images,ImagesAdmin)
+admin.site.register(Comment,CommentAdmin)

@@ -51,9 +51,10 @@
                         {% load mptt_tags %}
                         <div class="dropdown-menu m-0">
                             {% recursetree category %}
-                                <a href="/category/{{ node.slug }}" class="dropdown-item">{{ node.title }}</a>
+                                <a href="/category/{{ node.id }}/{{ node.slug }}" class="dropdown-item" >{{ node.title }}</a>
                                 {% if not node.is_leaf_node %}
-                                    <a href="/category/{{ node.slug }}" class="dropdown-item">{{ children }}</a>
+
+                                    <a href="/category/{{ node.id }}/{{ node.slug }}" class="dropdown-item">{{ children }}</a>
                                 {% endif %}
                             {% endrecursetree %}
                         </div>
@@ -63,7 +64,18 @@
                 <a href="/referanslar" class="nav-item nav-link">Referans</a>
                 <a href="/iletisim" class="nav-item nav-link">İletişim</a>
                 </div>
-                <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Bize katılın</a>
+                {% if user.id is not None %}
+
+                    <div class="btn-group" role="group">
+                        <button href="" id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{ user.username}}</button>
+                        <div class="dropdown-menu  ">
+                            <a class="dropdown-item" href="#" ><i class="fa fa-user"></i>Profilim</a>
+                            <a class="dropdown-item" href="/logout/" ><i class="fa fa-unlock-alt"></i>Çıkış Yap</a>
+                        </div>
+                    </div>
+                {% else %}
+                   <a href="/login/" class="btn btn-primary py-2 px-4 d-none d-lg-block">Bize katılın</a>
+                {% endif %}
             </div>
         </nav>
     </div>

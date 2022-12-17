@@ -1,102 +1,96 @@
-   {% load static %}
+{% extends "homebase.html" %}
+{% load static %}
 
-    <!-- Detail Start -->
+
+{% block title %} {{ course.title }} - Detay{% endblock %}
+{% block keywords %}{{ course.keywords }}{% endblock %}
+{% block description %}{{ course.description }}{% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="{% static 'image/x-icon' %}" href="{{ setting.icon.url }}">
+{% endblock %}
+{% block content %}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-1">KURS DETAY</h1>
+            <div class="d-inline-flex text-white mb-5">
+                <p class="m-0 text-uppercase"><a class="text-white" href="/home">Anasayfa</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Kurs Detay</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- Header End -->
+
+{% endblock %}
+{% block about %}
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="mb-5">
                         <div class="section-title position-relative mb-5">
-                            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Course Detail</h6>
-                            <h1 class="display-4">Web design & development courses for beginners</h1>
+                            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Kurs Detay</h6>
+                            <h1 class="display-4">{{ course.title}}</h1>
                         </div>
-                        <img class="img-fluid rounded w-100 mb-4" src="{% static 'img/header.jpg' %}" alt="Image">
-                        <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
+                        <img class="img-fluid rounded w-100 mb-4"  src="{{ course.image.url}}" alt="Image">
+                        <p>{{ course.description}}</p>
 
-                        <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem.
-                            Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet amet magna accusam
-                            consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at sanctus et. Ipsum sit
-                            gubergren dolores et, consetetur justo invidunt at et aliquyam ut et vero clita. Diam sea
-                            sea no sed dolores diam nonumy, gubergren sit stet no diam kasd vero.</p>
+                        <p> {{ course.detail|safe}} </p>
                     </div>
 
-                    <h2 class="mb-3">Related Courses</h2>
+                    <h2 class="mb-3">İlgili Kurslar</h2>
+
                     <div class="owl-carousel related-carousel position-relative" style="padding: 0 30px;">
-                        <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
+                        <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="/category/11/yazilim-dilleri/">
                             <img class="img-fluid" src="{% static 'img/courses-1.jpg' %}" alt="">
                             <div class="courses-text">
-                                <h4 class="text-center text-white px-3">Web design & development courses for
-                                    beginners</h4>
+                                <h4 class="text-center text-white px-3"></h4>
                                 <div class="border-top w-100 mt-3">
                                     <div class="d-flex justify-content-between p-4">
-                                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
+                                        <span class="text-white"><i class="fa fa-user mr-2"></i>ZCourse</span>
                                         <span class="text-white"><i class="fa fa-star mr-2"></i>4.5
                                             <small>(250)</small></span>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                            <img class="img-fluid" src="{% static 'img/courses-2.jpg' %}" alt="">
-                            <div class="courses-text">
-                                <h4 class="text-center text-white px-3">Web design & development courses for
-                                    beginners</h4>
-                                <div class="border-top w-100 mt-3">
-                                    <div class="d-flex justify-content-between p-4">
-                                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5
-                                            <small>(250)</small></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
-                            <img class="img-fluid" src="{% static 'img/courses-3.jpg' %}" alt="">
-                            <div class="courses-text">
-                                <h4 class="text-center text-white px-3">Web design & development courses for
-                                    beginners</h4>
-                                <div class="border-top w-100 mt-3">
-                                    <div class="d-flex justify-content-between p-4">
-                                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5
-                                            <small>(250)</small></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+
                     </div>
+
                </div>
 
                 <div class="col-lg-4 mt-5 mt-lg-0">
                     <div class="bg-primary mb-5 py-3">
-                        <h3 class="text-white py-3 px-4 m-0">Course Features</h3>
+                        <h3 class="text-white py-3 px-4 m-0">Kurs Özellikleri</h3>
                         <div class="d-flex justify-content-between border-bottom px-4">
-                            <h6 class="text-white my-3">Instructor</h6>
-                            <h6 class="text-white my-3">John Doe</h6>
+                            <h6 class="text-white my-3">Eğitmen</h6>
+                            <h6 class="text-white my-3">ZCourse</h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Rating</h6>
                             <h6 class="text-white my-3">4.5 <small>(250)</small></h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
-                            <h6 class="text-white my-3">Lectures</h6>
-                            <h6 class="text-white my-3">15</h6>
+                            <h6 class="text-white my-3">Dersler</h6>
+                            <h6 class="text-white my-3">12</h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
-                            <h6 class="text-white my-3">Duration</h6>
-                            <h6 class="text-white my-3">10.00 Hrs</h6>
+                            <h6 class="text-white my-3">Süre</h6>
+                            <h6 class="text-white my-3">10 Saat</h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
-                            <h6 class="text-white my-3">Skill level</h6>
-                            <h6 class="text-white my-3">All Level</h6>
+                            <h6 class="text-white my-3">Yetenek seviyesi</h6>
+                            <h6 class="text-white my-3">Tüm Seviye</h6>
                         </div>
                         <div class="d-flex justify-content-between px-4">
-                            <h6 class="text-white my-3">Language</h6>
-                            <h6 class="text-white my-3">English</h6>
+                            <h6 class="text-white my-3">Dil</h6>
+                            <h6 class="text-white my-3">Türkçe</h6>
                         </div>
-                        <h5 class="text-white py-3 px-4 m-0">Course Price: $199</h5>
+                        <h5 class="text-white py-3 px-4 m-0">{{ course.price}} ₺</h5>
                         <div class="py-3 px-4">
-                            <a class="btn btn-block btn-secondary py-3 px-5" href="">Enroll Now</a>
+                            <a class="btn btn-block btn-secondary py-3 px-5" href="">Kayıt ol</a>
                         </div>
                     </div>
 
@@ -171,6 +165,77 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-mb-2">
+                    <div class="product-reviews">
+                        {% for rs in comments %}
+                            <div class="single-review">
+                                <div class="review-heading">
+                                    <div><a href="#"><i class="fa fa-user-o"></i> {{ rs.user.first_name }}</a> </div>
+                                    <div><b>{{ rs.subject }}</b> </div>
+                                    <div><a href="#"><i class="fa fa-clock-o"></i> {{ rs.create_at}}</a></div>
+
+                                    <div class="review-rating pull-right">
+                                        <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
+                                        <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
+                                        <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
+                                        <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
+                                        <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i>
+                                    </div>
+                                </div>
+                                <div class="review-body">
+                                    <p>{{ rs.comment }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+
+                <div class="col-mb-12">
+                    <h4 class="text-uppercase">Yorumunuzu Yazın</h4>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+            <form class="review-form" action="/course/addcomment/{{ course.id }}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input name="subject" class="input" type="text" placeholder="Ders" />
+                </div>
+                <div class="form-group">
+                    <textarea name="comment" class="input" placeholder="Yorum"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="input-rating">
+                        <strong class="text-uppercase">Rating: </strong>
+                        <div class="stars">
+                            <input type="radio" id="star5" name="rate" value="5" /><label for="star5"></label>
+                            <input type="radio" id="star4" name="rate" value="4" /><label for="star4"></label>
+                            <input type="radio" id="star3" name="rate" value="3" /><label for="star3"></label>
+                            <input type="radio" id="star2" name="rate" value="2" /><label for="star2"></label>
+                            <input type="radio" id="star1" name="rate" value="1" /><label for="star1"></label>
+                        </div>
+                    </div>
+                </div>
+                {% if user.id is not None %}
+                    <button class="primary-btn">Yorum Gönder</button>
+                {% else %}
+                    Yorum yazmak için <a href="/login">Giriş</a> yapmalısınız!
+                {% endif %}
+            </form>
+        </div>
+</div>
         </div>
     </div>
+    </div>
+
     <!-- Detail End -->
+{% endblock %}
+
+
