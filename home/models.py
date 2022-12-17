@@ -1,7 +1,8 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.forms import ModelForm,TextInput,Textarea
-
+from django.forms import ModelForm, TextInput, Textarea
+from django.contrib.auth.models import User
+from django.utils.html import mark_safe
 
 # Create your models here.
 class Setting(models.Model):
@@ -52,18 +53,20 @@ class ContactFormMessage(models.Model):
     note = models.CharField(blank=True, max_length=100)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.name
 
+
 class ContactFormu(ModelForm):
     class Meta:
-        model=ContactFormMessage
-        fields = ['name','email','subject','phone','message']
-        widgets ={
-            'name': TextInput(attrs={'class':'input', 'placeholder':'name'}),
-            'subject': TextInput(attrs={'class':'input','placeholder':'subject'}),
+        model = ContactFormMessage
+        fields = ['name', 'email', 'subject', 'phone', 'message']
+        widgets = {
+            'name': TextInput(attrs={'class': 'input', 'placeholder': 'name'}),
+            'subject': TextInput(attrs={'class': 'input', 'placeholder': 'subject'}),
             'phone': TextInput(attrs={'class': 'input', 'placeholder': 'phone'}),
             'email': TextInput(attrs={'class': 'input', 'placeholder': 'Email'}),
-            'message': Textarea(attrs={'class': 'input', 'placeholder': 'message','rows':'5'})
+            'message': Textarea(attrs={'class': 'input', 'placeholder': 'message', 'rows': '5'})
         }
 

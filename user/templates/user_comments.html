@@ -1,0 +1,60 @@
+{% extends 'homebase.html' %}
+{% block title %} User Comments {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+
+{% block about %}
+<div>
+  &nbsp&nbsp&nbsp&nbsp&nbsp
+</div><div>
+  &nbsp&nbsp&nbsp&nbsp&nbsp
+</div>
+    <!-- section -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-2">
+                    {% include "user_panel.html" %}
+                </div>
+                <div class="col-md-10">
+                    <div class="section-title">
+                        <h4 class="title">Yorumlarım</h4>
+                    </div>
+                    <table class="shopping-cart-table table">
+                        <tr>
+                            <th class="text-left">Kurs Adı </th>
+                            <th class="text-left">Puan </th>
+                            <th class="text-left">Ders </th>
+                            <th class="text-left">Yorum </th>
+                            <th class="text-left">Durum </th>
+                            <th class="text-left">Tarih </th>
+
+
+                        </tr>
+                        {% for rs in comments %}
+                            <tr>
+                                <td class="text-left">
+                                    <a href="/course/{{ rs.course_id }}/{{ rs.course.slug }}">
+                                        <strong> {{ rs.course.title}}</strong>
+                                    </a>
+                                </td>
+                                <td class="text-left">{{ rs.rate}} </td>
+                                <td class="text-left">{{ rs.subject}} </td>
+                                <td class="text-left">{{ rs.comment}} </td>
+                                <td class="text-left">{{ rs.status}} </td>
+                                <td class="text-left">{{ rs.create_at}} </td>
+
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /section -->
+{% endblock %}

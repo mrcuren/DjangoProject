@@ -1,0 +1,94 @@
+{% extends "homebase.html" %}
+{% load static %}
+
+
+{% block title %} Kullanıcı Profili - {{ setting.company }}{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="{% static 'image/x-icon' %}" href="{{ setting.icon.url }}">
+{% endblock %}
+{% block content %}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-1">KULLANICI PROFİLİ</h1>
+            <div class="d-inline-flex text-white mb-5">
+                <p class="m-0 text-uppercase"><a class="text-white" href="/home">Anasayfa</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">KULLANICI PROFİLİ</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- Header End -->
+
+{% endblock %}
+{% block about %}
+
+
+    <!-- section -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <div class="col-md-3">
+                    {% include "user_panel.html" %}
+                </div>
+
+                <div class="col-md-9">
+                    <div class="billing-details">
+                        <div class="section-title">
+                            <h3 class="title">Kullanıcı Profili Bilgisi</h3>
+                        </div>
+                    </div>
+                     <table class="shopping-cart-table table">
+                        <tr>
+                            <th class="text-left">
+                                <a href="/user/update" class="primary-btn">Profili Güncelle |</a>
+                                <a href="/user/password" class="primary-btn">Şifre Değiştir</a>
+                            </th>
+                            <td><img src="{{ profile.image.url }}" style="border-radius: 45px; height: 200px "></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left">İsim Soyisim</th>
+                            <td class="text-left">{{ user.first_name}} {{ user.last_name}} </td>
+                        </tr>
+                        <tr>
+                            <th class="text-left">Email</th>
+                            <td class="text-left">{{ profile.user.email}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-left">Telefon Numarası</th>
+                            <td class="text-left">{{ profile.phone}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-left">Adresi</th>
+                            <td class="text-left">{{ profile.address}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-left">Şehir</th>
+                            <td class="text-left">{{ profile.city}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-left">Ülke</th>
+                            <td class="text-left">{{ profile.country}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /section -->
+
+
+{% endblock %}
+
+
