@@ -5,7 +5,7 @@ from home.models import Setting, ContactFormMessage, ContactFormu
 from course.models import Category, Course,Comment
 from django.template.base import VariableDoesNotExist
 from django.contrib.auth import logout,authenticate, login
-
+from home.forms import SignUpForm
 
 # Create your views here.
 def index(request):
@@ -92,3 +92,21 @@ def login_view(request):
     category = Category.objects.all()
     context = {'category': category}
     return render(request, 'login.html', context)
+
+def signup_view(request):
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = request.POST['username']
+            password = request.POST['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request,user)
+            return HttpResponseRedirect('/')
+
+    form=SignUpForm()
+    category = Category.objects.all()
+    context = {'category': category,
+               'form': form,
+               }
+    return render(request, 'signup.html', context)

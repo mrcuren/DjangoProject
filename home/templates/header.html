@@ -74,7 +74,14 @@
                         </div>
                     </div>
                 {% else %}
-                   <a href="/login/" class="btn btn-primary py-2 px-4 d-none d-lg-block">Bize katılın</a>
+                   <div class="btn-group" role="group">
+
+                    <button href="" id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bize katılın</button>
+                    <div class="dropdown-menu  ">
+                            <a class="dropdown-item" href="/login/" ><i class="fa fa-user-circle" aria-hidden="true"></i> <b>Giriş</b></a>
+                            <a class="dropdown-item" href="/signup/" ><i class="fa fa-user-plus" aria-hidden="true"></i> <b>Üye ol</b></a>
+                        </div>
+
                 {% endif %}
             </div>
         </nav>
