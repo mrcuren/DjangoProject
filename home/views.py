@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from home.models import Setting, ContactFormMessage, ContactFormu
+from home.models import Setting, ContactFormMessage, ContactFormu,FAQ
 from course.models import Category, Course,Comment
 from django.template.base import VariableDoesNotExist
-
+from programlama2 import settings
 
 # Create your views here.
 def index(request):
@@ -71,5 +71,12 @@ def course_detail(request,id,slug):
 
 
 
+def faq(request):
+    category = Category.objects.all()
 
-
+    faq=FAQ.objects.all().order_by('ordernumber')
+    context = {
+               'category': category,
+               'faq': faq,
+               }
+    return render(request, 'faq.html', context)

@@ -37,6 +37,7 @@ urlpatterns = [
     path("logout/", UserViews.logout_view, name="logout_view"),
     path("login/", UserViews.login_view, name="login_view"),
     path("signup/", UserViews.signup_form, name="signup"),
+    path('sss/', views.faq, name='faq'),
 
 
 
