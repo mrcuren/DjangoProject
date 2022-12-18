@@ -32,6 +32,7 @@ urlpatterns = [
     path("hakkimizda/", views.hakkimizda, name="hakkimizda"),
     path("referanslar/", views.referanslar, name="referanslar"),
     path("iletisim/", views.iletisim, name="iletisim"),
+    path("egitmenler/", views.egitmenler, name="egitmenler"),
     path("category/<int:id>/<slug:slug>/", views.category_courses, name='category_courses'),
     path("course/<int:id>/<slug:slug>/", views.course_detail, name='course_detail'),
     path("logout/", UserViews.logout_view, name="logout_view"),

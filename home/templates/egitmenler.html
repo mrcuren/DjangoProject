@@ -1,0 +1,101 @@
+{% extends "homebase.html" %}
+{% load static %}
+
+
+{% block title %} Eğitmenler - {{ setting.company }}{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="{% static 'image/x-icon' %}" href="{{ setting.icon.url }}">
+{% endblock %}
+{% block content %}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-1">EĞİTMENLER</h1>
+            <div class="d-inline-flex text-white mb-5">
+                <p class="m-0 text-uppercase"><a class="text-white" href="/home">Anasayfa</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Eğitmenler</p>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block about %}
+
+
+
+    <!-- LOADER -->
+	<div id="preloader">
+		<div class="loader-container">
+			<div class="progress-br float shadow">
+				<div class="progress__item"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="teachers" class="section wb">
+        <div class="container">
+            <div class="row">
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="our-team">
+						<div class="team-img">
+							<img src="{% static 'img/team-01.png' %}">
+							<h3 class="title">Pınar Aslan</h3>
+							<span class="post">Software Developer</span>
+                            <div> &nbsp&nbsp&nbsp </div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="our-team">
+						<div class="team-img">
+							<img src="{% static 'img/team-02.png' %}">
+							<h3 class="title">Başak Kaya</h3>
+							<span class="post">Kişisel Gelişim Uzmanı</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="our-team">
+						<div class="team-img">
+							<img src="{% static 'img/team-03.png' %}">
+							<h3 class="title">Selim Şatıroğlu</h3>
+							<span class="post">Pazarlama ve Analiz Uzmanı</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="our-team">
+						<div class="team-img">
+							<img src="{% static 'img/team-04.png' %}">
+							<h3 class="title">Zeynep Sönmez</h3>
+							<span class="post">Software Developer</span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="our-team">
+						<div class="team-img">
+							<img style="width: 260px; height:330px"src="{% static 'img/team-1.jpg' %}">
+							<h3 class="title">Defne Çelik</h3>
+							<span class="post">Web Developer</span>
+						</div>
+					</div>
+				</div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!
+     <!-- ALL JS FILES -->
+    <script src="{% static 'js/all.js'%}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/custom.js'%}"></script>
+{% endblock %}

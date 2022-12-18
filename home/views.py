@@ -80,3 +80,9 @@ def faq(request):
                'faq': faq,
                }
     return render(request, 'faq.html', context)
+
+def egitmenler(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    context = {'setting': setting, 'page': 'egitmenler', 'category': category}
+    return render(request, 'egitmenler.html', context)
