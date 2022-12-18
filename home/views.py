@@ -10,7 +10,7 @@ from programlama2 import settings
 def index(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
-    homecourses= Course.objects.all().order_by('-id')[:2]
+    homecourses= Course.objects.all().order_by('-id')[:3]
     context = {'setting': setting, 'page': 'home', 'category': category,'homecourses': homecourses}
     return render(request, 'index.html', context)
 

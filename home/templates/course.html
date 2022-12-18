@@ -11,6 +11,7 @@
             </div>
 
             <div class="owl-carousel courses-carousel" >
+                {% for rs in homecourses %}
                 <div class="courses-item position-relative">
                     <img class="img-fluid" src="{{ rs.image.url}}" alt="">
                     <div class="courses-text">
@@ -26,8 +27,10 @@
                         </div>
                     </div>
                 </div>
+                 {% endfor%}
             </div>
         </div>
+
  </div>
     <!-- Courses End -->
 
